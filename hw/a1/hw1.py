@@ -49,7 +49,7 @@ def swap_red_green_channel(img: np.ndarray) -> np.ndarray:
     :return: Image array as ndarray of red and green channels swapped
     """
     swapped_img = img.copy()
-    swapped_img[:, :, [1, 2]] = img[:, :, [2, 1]]  # Swap red and green
+    swapped_img[:, :, [1, 2]] = img[:, :, [2, 1]]
     return swapped_img
 
 
@@ -65,11 +65,7 @@ def embed_middle(img1: np.ndarray, img2: np.ndarray, embed_size: (int, int)) -> 
     embed_w, embed_h = embed_size
     start_w = (w - embed_w) // 2
     start_h = (h - embed_h) // 2
-
-    # Resize img2 to embed_size
     resized_img2 = cv2.resize(img2, (embed_w, embed_h))
-
-    # Embed in the middle of img1
     img1[start_h:start_h + embed_h, start_w:start_w + embed_w] = resized_img2
     return img1
 
@@ -95,7 +91,9 @@ def shift_image(img: np.ndarray, shift_val: int) -> np.ndarray:
     :param shift_val: Value to shift the image
     :return: Shifted image as ndarray
     """
-    raise NotImplementedError()
+    top, bottom, left, right = 0, 0, shift_val, 0
+    shifted_img = cv2.copyMakeBorder(img[:, :-shift_val], top, bottom, left, right, borderType=cv2.BORDER_CONSTANT, value=[0, 0, 0])
+    return shifted_img
 
 
 def difference_image(img1: np.ndarray, img2: np.ndarray) -> np.ndarray:
@@ -143,12 +141,10 @@ def add_salt_pepper(img: np.ndarray) -> np.ndarray:
     :return: Image array with salt and pepper noise
     """
     salt_pepper_img = img.copy()
-    prob = 0.05  # Probability of noise
+    prob = 0.05  # noise prob
     rnd = np.random.rand(*img.shape[:2])
-
-    salt_pepper_img[rnd < prob / 2] = 0  # Pepper noise
-    salt_pepper_img[rnd > 1 - prob / 2] = 255  # Salt noise
-
+    salt_pepper_img[rnd < prob / 2] = 0  # pepper
+    salt_pepper_img[rnd > 1 - prob / 2] = 255  # salt
     return salt_pepper_img
 
 
