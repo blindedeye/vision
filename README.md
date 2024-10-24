@@ -13,4 +13,5 @@
 
 | Assignment | Due Date | Done | Location | Notes |
 | ---------- | -------- | ---- | -------- | ----- |
-| A1 | 09/05/24 | &#9745; | [Screenshot](hw/a1/) | Varying image manipulations for two jpg files. |
+| A1 | 09/05/24 | &#9745; | [Location](hw/a1/) | Varying image manipulations for two jpg files. |
+| A2 | 10/01/24 | &#9745; | [Location](hw/a1/) | Sign detection (hard assignment). |
