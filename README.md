@@ -15,3 +15,4 @@
 | ---------- | -------- | ---- | -------- | ----- |
 | A1 | 09/05/24 | &#9745; | [Location](hw/a1/) | Varying image manipulations for two jpg files. |
 | A2 | 10/01/24 | &#9745; | [Location](hw/a2/) | Sign detection (hard assignment). |
+| A3 | 12/12/24 | &#9745; | [Location](hw/a3/) | AR Marker detection. Outputs 4 images with overlay, and 1 video with overlay. |
